@@ -103,7 +103,12 @@
                     <button class="search-btn">
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
+
+                    
                 </div>
+
+                
+                  
                 
 
                 <div class="header-user-action">
@@ -121,13 +126,83 @@
                         <ion-icon name="bag-handle-outline"></ion-icon>
                         <span class="count">0</span>
                     </button>
-
+                    <!-- Login Icon (triggers auth modal) -->
+                    <button class="action-btn" onclick="toggleAuthModal()" title="Login/Register">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                    </button>
+  
+                    <!-- <button class="action-btn" onclick="toggleAuthModal()" title="Login/Register">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                      </button> -->
                     <!-- <button onclick="myFunction()"><ion-icon name="moon-outline"></ion-icon></button> -->
+
+                    
                 </div>
                 
             </div>
         </div>
 
+<!-- User Authentication Modal (Login & Register) -->
+<div class="auth-modal" id="authModal">
+    <div class="auth-content">
+      <span class="close-auth" onclick="toggleAuthModal()">&times;</span>
+  
+      <div class="auth-tabs">
+        <button onclick="showTab('login')">Login</button>
+        <button onclick="showTab('register')">Register</button>
+      </div>
+  
+      <div class="auth-forms">
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+          <h2>Login</h2>
+          <input type="email" id="loginEmail" placeholder="Email" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <button type="submit">Login</button>
+        </form>
+  
+        <!-- Register Form -->
+        <form id="registerForm" class="auth-form hidden">
+          <h2>Register</h2>
+          <input type="text" id="registerName" placeholder="Name" required>
+          <input type="email" id="registerEmail" placeholder="Email" required>
+          <input type="password" id="registerPassword" placeholder="Password" required>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+        <script>
+            function toggleAuthModal() {
+              const modal = document.getElementById('authModal');
+              modal.classList.toggle('active');
+              showTab('login');
+            }
+          
+            function showTab(tab) {
+              document.getElementById('loginForm').classList.add('hidden');
+              document.getElementById('registerForm').classList.add('hidden');
+              document.getElementById(tab + 'Form').classList.remove('hidden');
+            }
+          
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const email = document.getElementById('loginEmail').value;
+              const password = document.getElementById('loginPassword').value;
+              alert(`Logged in with Email: ${email}`);
+            });
+          
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const name = document.getElementById('registerName').value;
+              const email = document.getElementById('registerEmail').value;
+              const password = document.getElementById('registerPassword').value;
+              alert(`Registered with Name: ${name}, Email: ${email}`);
+            });
+          </script>
+          
+        
         <nav class="desktop-navigation-menu">
             <div class="container">
                 <ul class="desktop-menu-category-list">
@@ -1221,7 +1296,7 @@
 
                             <div class="showcase">
                                 <a href="#" class="showcase-img-box">
-                                    <img src="https://i.postimg.cc/0yCHGD6R/shoe-" alt="casual men's brown shoes" class="showcase-img" width="70"> 
+                                    <img src="https://i.postimg.cc/0yCHGD6R/shoe-2.jpg" alt="casual men's brown shoes" class="showcase-img" width="70"> 
                                 </a>
 
                                 <div class="showcase-content">
